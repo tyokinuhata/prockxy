@@ -1,4 +1,4 @@
-import configparser, requests, json, uuid
+import uuid
 from slack_incoming_webhook import SlackIncomingWebhook
 
 # スクレイピング
