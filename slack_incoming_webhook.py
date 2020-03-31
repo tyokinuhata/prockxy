@@ -1,4 +1,4 @@
-import configparser, requests, json, uuid
+import configparser, requests, json, random
 from cache_musics import CacheMusics
 
 class SlackIncomingWebhook:
@@ -20,7 +20,7 @@ class SlackIncomingWebhook:
 if __name__ == '__main__':
     print('Posting message ...')
     cache_musics = CacheMusics()
-    music = cache_musics.fetch()
+    music = cache_musics.find(id = random.randint(1, cache_musics.count()))
     slack_incoming_webhook = SlackIncomingWebhook()
     slack_incoming_webhook.post(
         channel='#recommend-music',

@@ -20,9 +20,11 @@ class CacheMusics:
         self.conn.commit()
         return self
 
-    def fetch(self):
-        self.cur.execute('SELECT * FROM musics')
-        return self.cur.fetchone()
+    def find(self, id = 1):
+        return self.cur.execute('SELECT * FROM musics WHERE id = ?', (str(id),)).fetchone()
+
+    def count(self):
+        return self.cur.execute('SELECT count(*) FROM musics').fetchall()[0][0]
 
     def close(self):
         self.conn.close()
