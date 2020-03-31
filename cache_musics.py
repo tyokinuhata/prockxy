@@ -20,6 +20,10 @@ class CacheMusics:
         self.conn.commit()
         return self
 
+    def fetch(self):
+        self.cur.execute('SELECT * FROM musics')
+        return self.cur.fetchone()
+
     def close(self):
         self.conn.close()
         return self
