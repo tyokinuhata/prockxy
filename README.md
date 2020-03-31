@@ -1,5 +1,5 @@
 # Prockxy
-*[FM802のオンエア曲目](https://funky802.com/service/OnairList/today)をスクレイピングし, Slack APIのIncoming Webhookでチャンネルに新曲をリコメンドします。*  
+*[FM802のオンエア曲目](https://funky802.com/service/OnairList/today)をスクレイピングし, Slack APIのIncoming Webhookでチャンネルに新曲をリコメンドします。*
 
 ### 環境構築
 
@@ -17,5 +17,6 @@ $ touch database.sqlite
 $ pipenv run db                     // DBを作り直す
 $ pipenv run scrape                 // FM802からスクレイピングしてくる
 $ pipenv run slack                  // Slackに投稿する
-$ pipenv run cron                   // "pipenv run scrape"と"pipenv run slack"を定期実行する. 本番環境では "pipenv run cron &"でバックグラウンド実行にする
+$ pipenv run cron                   // "pipenv run scrape"と"pipenv run slack"を定期実行する.
+$ pipenv run cron &                 // 本番環境の場合
 ```
