@@ -1,0 +1,2 @@
+[DEFAULT]
+INCOMING_WEBHOOK_URL = http://example.com
