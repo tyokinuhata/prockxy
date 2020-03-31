@@ -1,4 +1,5 @@
 import configparser, requests, json, uuid
+from slack_incoming_webhook import SlackIncomingWebhook
 
 # スクレイピング
 
@@ -7,14 +8,10 @@ import configparser, requests, json, uuid
 # DBに入れる
 
 # Slackに流す
-config = configparser.ConfigParser()
-config.read('config.ini', encoding='utf-8')
-INCOMING_WEBHOOK_URL = config['DEFAULT']['INCOMING_WEBHOOK_URL']
-text = str(uuid.uuid4())
-
-requests.post(INCOMING_WEBHOOK_URL, data = json.dumps({
-    'channel': '#recommend-music',
-    'username': 'h-takahashi',
-    'text': text,
-    'icon_emoji': ':takashi:',
-}))
+slack_incoming_webhook = SlackIncomingWebhook()
+slack_incoming_webhook.post(
+    channel='#recommend-music',
+    username='h-takahashi',
+    text=str(uuid.uuid4()),
+    icon='takashi',
+)
