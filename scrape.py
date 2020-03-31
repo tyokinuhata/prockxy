@@ -18,7 +18,6 @@ class Scrape:
             artist = music.find('span', attrs={'class': 'artist-name'}).contents[0]
             dummy_url = '/elements/shared/images/dummy.jpg'
             cd_jacket = 'https://funky802.com{}'.format(dummy_url) if music.find('img')['src'] == dummy_url else music.find('img')['src']
-            # audio = song.find('span', attrs={'class': 'audition'})
             exists = self.musics.exists(song_name, artist)
             if (not exists):
                 self.musics.insert(song_name, artist, cd_jacket)
