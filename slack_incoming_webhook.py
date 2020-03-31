@@ -1,4 +1,4 @@
-import configparser, requests, json
+import configparser, requests, json, uuid
 
 class SlackIncomingWebhook:
 
@@ -15,3 +15,14 @@ class SlackIncomingWebhook:
             'icon_emoji': ':{}:'.format(icon),
         }))
         return self
+
+if __name__ == '__main__':
+    print('Posting message ...')
+    slack_incoming_webhook = SlackIncomingWebhook()
+    slack_incoming_webhook.post(
+        channel='#recommend-music',
+        username='h-takahashi',
+        text=str(uuid.uuid4()),
+        icon='takashi',
+    )
+    print('Succeed!')

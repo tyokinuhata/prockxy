@@ -1,7 +1,6 @@
 import sqlite3
 
 class CacheMusics:
-
     def __init__(self):
         self.conn = sqlite3.connect('database.sqlite')
         self.cur = self.conn.cursor()
@@ -26,5 +25,7 @@ class CacheMusics:
         return self
 
 if __name__ == '__main__':
+    print('Initializing database ...')
     cache_musics = CacheMusics()
     cache_musics.drop_table().create_table().close()
+    print('Succeed!')

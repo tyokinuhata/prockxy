@@ -14,5 +14,6 @@ lxml = "*"
 python_version = "3.7"
 
 [scripts]
-app = "python app.py"
 db = "python cache_musics.py"
+scrape = "python scrape.py"
+slack = "python slack_incoming_webhook.py"
