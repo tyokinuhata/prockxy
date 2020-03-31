@@ -6,7 +6,7 @@ class Musics:
         self.cur = self.conn.cursor()
 
     def create_table(self):
-        self.cur.execute('CREATE TABLE IF NOT EXISTS musics(id INTEGER PRIMARY KEY AUTOINCREMENT, song_name STRING, artist STRING)')
+        self.cur.execute('CREATE TABLE IF NOT EXISTS musics(id INTEGER PRIMARY KEY AUTOINCREMENT, song_name STRING, artist STRING, cd_jacket STRING)')
         self.conn.commit()
         return self
 
@@ -15,8 +15,8 @@ class Musics:
         self.conn.commit()
         return self
 
-    def insert(self, song_name, artist_name):
-        self.cur.execute('INSERT INTO musics(song_name, artist) VALUES(?, ?)', (song_name, artist_name))
+    def insert(self, song_name, artist_name, cd_jacket):
+        self.cur.execute('INSERT INTO musics(song_name, artist, cd_jacket) VALUES(?, ?, ?)', (song_name, artist_name, cd_jacket))
         self.conn.commit()
         return self
 
