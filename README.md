@@ -8,9 +8,9 @@
 ```bash
 $ git clone https://github.com/tyokinuhata/prockxy.git
 $ cd prockxy
-$ cp config.ini.example config.ini  // After that, write Incoming Webhook URL
+$ cp config.ini.example config.ini  // After that, add Incoming Webhook URL
 $ touch database.sqlite
-$ pipenv run db
-$ pipenv run scrape
-$ pipenv run slack
+$ pipenv run db                     // Create database
+$ pipenv run scrape                 // Scraping musics
+$ pipenv run slack                  // Post music recommend to slack
 ```
