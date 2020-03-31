@@ -1,8 +1,7 @@
 import configparser, requests, json, random
-from cache_musics import CacheMusics
+from musics import Musics
 
 class SlackIncomingWebhook:
-
     def __init__(self):
         config = configparser.ConfigParser()
         config.read('config.ini', encoding='utf-8')
@@ -19,10 +18,10 @@ class SlackIncomingWebhook:
 
 if __name__ == '__main__':
     print('Posting message ...')
-    cache_musics = CacheMusics()
-    end = cache_musics.count()
+    musics = Musics()
+    end = musics.count()
     begin = 1 if end - 200 < 1 else end - 200
-    music = cache_musics.find(id = random.randint(begin, end))
+    music = musics.find(id = random.randint(begin, end))
     slack_incoming_webhook = SlackIncomingWebhook()
     slack_incoming_webhook.post(
         channel='#recommend-music',
