@@ -1,6 +1,6 @@
 import uuid
 from slack_incoming_webhook import SlackIncomingWebhook
-from music_cache import MusicCache
+from cache_musics import CacheMusics
 import requests
 from bs4 import BeautifulSoup
 
@@ -10,12 +10,12 @@ res = requests.get(url)
 bs = BeautifulSoup(res.text, 'lxml')
 musics = bs.find('dl', attrs={'class': 'noa-song-list'})
 musics = musics.find_all('dd')
-music_cache = MusicCache()
+cache_musics = CacheMusics()
 for music in musics:
     song_name = music.find('span', attrs={'class': 'song-name'})
     artist = music.find('span', attrs={'class': 'artist-name'})
     # audio = song.find('span', attrs={'class': 'audition'})
-    music_cache.insert(song_name.contents[0], artist.contents[0])
+    cache_musics.insert(song_name.contents[0], artist.contents[0])
 
 # DBと照合
 

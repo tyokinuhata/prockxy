@@ -1,6 +1,6 @@
 import sqlite3
 
-class MusicCache:
+class CacheMusics:
 
     def __init__(self):
         self.conn = sqlite3.connect('database.sqlite')
@@ -26,5 +26,5 @@ class MusicCache:
         return self
 
 if __name__ == '__main__':
-    music_cache = MusicCache()
-    music_cache.drop_table().create_table().close()
+    cache_musics = CacheMusics()
+    cache_musics.drop_table().create_table().close()
