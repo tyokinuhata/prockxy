@@ -11,5 +11,6 @@ $ cd prockxy
 $ cp config.ini.example config.ini  // After that, write Incoming Webhook URL
 $ touch database.sqlite
 $ pipenv run db
-$ python app.py
+$ pipenv run scrape
+$ pipenv run slack
 ```

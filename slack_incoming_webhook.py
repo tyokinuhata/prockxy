@@ -25,7 +25,7 @@ if __name__ == '__main__':
     slack_incoming_webhook.post(
         channel='#recommend-music',
         username='h-takahashi',
-        text=u'曲名: {}, 歌手: {}'.format(music[1], music[2]),
+        text=u'{} - {}'.format(music[1], music[2]),
         icon='takashi',
     )
     print('Succeed!')
