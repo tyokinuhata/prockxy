@@ -20,7 +20,9 @@ class SlackIncomingWebhook:
 if __name__ == '__main__':
     print('Posting message ...')
     cache_musics = CacheMusics()
-    music = cache_musics.find(id = random.randint(1, cache_musics.count()))
+    end = cache_musics.count()
+    begin = 1 if end - 200 < 1 else end - 200
+    music = cache_musics.find(id = random.randint(begin, end))
     slack_incoming_webhook = SlackIncomingWebhook()
     slack_incoming_webhook.post(
         channel='#recommend-music',
