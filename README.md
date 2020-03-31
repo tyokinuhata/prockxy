@@ -9,5 +9,6 @@
 $ git clone https://github.com/tyokinuhata/prockxy.git
 $ cd prockxy
 $ cp config.ini.example config.ini  // After that, write Incoming Webhook URL
+$ touch database.sqlite
 $ python app.py
 ```
