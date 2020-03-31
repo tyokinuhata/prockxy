@@ -13,4 +13,5 @@ $ touch database.sqlite
 $ pipenv run db                     // Create database
 $ pipenv run scrape                 // Scraping musics
 $ pipenv run slack                  // Post music recommend to slack
+$ pipenv run cron
 ```
