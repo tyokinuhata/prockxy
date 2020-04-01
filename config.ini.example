@@ -1,2 +1,5 @@
 [DEFAULT]
 INCOMING_WEBHOOK_URL = http://example.com
+CHANNEL = recommend-music
+USERNAME = 音楽好き子ちゃん
+ICON = studio_microphone
