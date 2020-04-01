@@ -1,7 +1,7 @@
 import configparser, requests, json, random
 from musics import Musics
 
-class SlackIncomingWebhook:
+class Slack:
     def __init__(self):
         config = configparser.ConfigParser()
         config.read('config.ini', encoding='utf-8')
@@ -22,8 +22,8 @@ if __name__ == '__main__':
     end = musics.count()
     begin = 1 if end - 200 < 1 else end - 200
     music = musics.find(id = random.randint(begin, end))
-    slack_incoming_webhook = SlackIncomingWebhook()
-    slack_incoming_webhook.post(
+    slack = Slack()
+    slack.post(
         channel='#recommend-music',
         username='h-takahashi',
         text=u'{}\n{} - {}'.format(music[3], music[1], music[2]),

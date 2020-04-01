@@ -17,6 +17,6 @@ $ touch database.sqlite
 $ pipenv run db                     // DBを作り直す
 $ pipenv run scrape                 // FM802からスクレイピングしてくる
 $ pipenv run slack                  // Slackに投稿する
-$ pipenv run cron                   // "pipenv run scrape"と"pipenv run slack"を定期実行する.
-$ pipenv run cron &                 // 本番環境の場合
+$ pipenv run job                    // "pipenv run scrape"と"pipenv run slack"を定期実行する.
+$ pipenv run job &                  // 本番環境の場合(バックグラウンド実行)
 ```

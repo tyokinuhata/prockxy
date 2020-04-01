@@ -17,5 +17,5 @@ python_version = "3.7"
 [scripts]
 db = "python musics.py"
 scrape = "python scrape.py"
-slack = "python slack_incoming_webhook.py"
-cron = "python cron.py"
+slack = "python slack.py"
+job = "python job.py"
