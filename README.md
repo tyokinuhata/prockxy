@@ -1,5 +1,5 @@
 # Prockxy
-*[FM802のオンエア曲目](https://funky802.com/service/OnairList/today)をスクレイピングし, Slack APIのIncoming Webhookでチャンネルに新曲をリコメンドします。*
+*[FM802のオンエア曲目](https://funky802.com/service/OnairList/today)をスクレイピングし, Slack APIのIncoming Webhookでチャンネルに新曲をレコメンドします。*
 
 ### 環境構築
 
@@ -20,3 +20,9 @@ $ pipenv run slack                  // Slackに投稿する
 $ pipenv run job                    // "pipenv run scrape"と"pipenv run slack"を定期実行する.
 $ pipenv run job &                  // 本番環境の場合(バックグラウンド実行)
 ```
+
+### 仕様
+
+- FM802のオンエア曲目のスクレイピングは12時間に１回、Slackへのレコメンドは１時間に１回走る
+- スクレイピングしたデータは一旦ローカルのSQLiteにキャッシュされる(重複曲はキャッシュされない)
+- レコメンドは最新200件のデータからランダムに選択される
